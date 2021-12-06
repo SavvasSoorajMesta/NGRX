@@ -11,22 +11,22 @@ import { counterState } from '../state/counter.state';
 export class CounterButtonComponent implements OnInit {
 
   constructor(private store: Store<{counter: counterState}>) { }
-  // @Output() onin = new EventEmitter<void>();
-  // @Output() onDn = new EventEmitter<void>();
-  // @Output() onreset = new EventEmitter<void>();
+
   ngOnInit(): void {
   }
-  increment(){
 
+  increment(){
+      // trigger the increment action method 
     this.store.dispatch(increment());
     // this.onin.emit();
   }
   decrement(){
-    // this.onDn.emit();
+    // trigger the decrement action method 
     this.store.dispatch(decrement());
   }
   reset(){
-    // this.onreset.emit();
+    
+    // trigger the reset action method 
     this.store.dispatch(reset());
   }
 

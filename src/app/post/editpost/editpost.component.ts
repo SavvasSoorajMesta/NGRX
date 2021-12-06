@@ -3,9 +3,9 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Post } from 'src/app/model/post.model';
-import { addpost, updatePost } from '../postlist/state/post.action';
-import { GetPostById } from '../postlist/state/post.selector';
-import { postState } from '../postlist/state/post.state';
+import { addpost, updatePost } from '../state/post.action';
+import { GetPostById } from '../state/post.selector';
+import { postState } from '../state/post.state';
 
 @Component({
   selector: 'app-editpost',
@@ -19,9 +19,11 @@ export class EditpostComponent implements OnInit {
   postId!: number;
   ngOnInit(): void {
     
+    // get the id from router link 
     this.router.paramMap.subscribe(data => {
       const id = data.get('id');
       if(id){
+        // fetch data from post state 
         this.store.select(GetPostById, {id}).subscribe((data) =>{
           this.postId = data.id;
           this.postForm = new FormGroup({
@@ -36,14 +38,17 @@ export class EditpostComponent implements OnInit {
 
   updatepost(form: NgForm){
     console.log(this.postForm.value);
-
+    //  clear form 
     this.postForm.reset(this.postForm.value);
+
+    
     const PostData:Post = {
       id: this.postId,
       title: this.postForm.value.title,
       description: this.postForm.value.description
     }
     this.store.dispatch(updatePost({post:PostData}));
+
     this.route.navigate(['post'])
   }
 }

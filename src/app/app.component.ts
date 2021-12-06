@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {APIService} from './MockServer/RestAPI/API.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,6 @@ import {APIService} from './MockServer/RestAPI/API.service';
 })
 export class AppComponent {
   title = 'AngularNgRX';
-  constructor(private server:APIService){}
+  constructor(){}
 
 }

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AuthService } from 'src/app/auth/auth.service';
 import { Post } from 'src/app/model/post.model';
-import { addpost, updatePost } from '../postlist/state/post.action';
-import { GetPostById } from '../postlist/state/post.selector';
-import { postState } from '../postlist/state/post.state';
+import { addpost, updatePost } from '../state/post.action';
+import { GetPostById } from '../state/post.selector';
+import { postState } from '../state/post.state';
 
 @Component({
   selector: 'app-addpost',
@@ -15,7 +14,7 @@ import { postState } from '../postlist/state/post.state';
 })
 export class AddpostComponent implements OnInit {
 
-  constructor(private store:Store<postState>,private AuthService:AuthService, private router:ActivatedRoute) { }
+  constructor(private store:Store<postState>,private route:Router, private router:ActivatedRoute) { }
   postForm!: FormGroup;
 
   ngOnInit(): void {
@@ -50,8 +49,10 @@ export class AddpostComponent implements OnInit {
       description: this.postForm.value.description
     }
     this.store.dispatch(addpost({post:PostData}));
-    // this.AuthService.PostASingleUser(PostData).subscribe(data => console.log("post response+++++++++++++++++"+data))
     this.createForm();
+
+    this.route.navigate(['post'])
+    
 
   }
 }

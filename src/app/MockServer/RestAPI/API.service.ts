@@ -2,7 +2,7 @@
 import {Injectable} from '@angular/core';
 import { Model, Server } from 'miragejs';
 import { createServer } from 'miragejs';
-import { initialState } from 'src/app/post/postlist/state/post.state';
+import { initialState } from 'src/app/post/state/post.state';
 import * as AuthResponse from 'src/app/MockServer/Auth/Auth.response.json'
 import { AuthResponseData } from 'src/app/model/AuthResponseData.model';
 @Injectable({

@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { changeAuthorName, customIncrement, decrement, increment, reset } from "./counter.action";
+import { customIncrement, decrement, increment, reset } from "./counter.action";
 import { initialState } from "./counter.state";
 
 
@@ -27,14 +27,7 @@ const _counterReducer = createReducer(initialState,
             ...state,
             counter: state.counter + action.value
         }
-    }),
-    on(changeAuthorName, state => {
-        return {
-            ...state,
-            authorName: 'sooraj mesta'
-        }
-    }
-    )
+    })
     
 );
 

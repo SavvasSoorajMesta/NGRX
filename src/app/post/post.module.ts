@@ -6,8 +6,7 @@ import { AddpostComponent } from './addpost/addpost.component';
 import { EditpostComponent } from './editpost/editpost.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { postReducer } from './postlist/state/post.reducer';
-import { AuthService } from '../auth/auth.service';
+import { postReducer } from './state/post.reducer';
 
 const route: Routes = [{
   path:'post', component: PostlistComponent,
@@ -33,6 +32,6 @@ const route: Routes = [{
     StoreModule.forFeature('post',postReducer),
     RouterModule.forChild(route)
   ],
-  providers:[AuthService]
+  providers:[]
 })
 export class PostModule { }

@@ -10,8 +10,6 @@ import { environment } from 'src/environments/environment';
 import { EffectsModule} from '@ngrx/effects';
 import { PostModule } from './post/post.module';
 import { HttpClientModule } from '@angular/common/http';
-import {APIService} from './MockServer/RestAPI/API.service';
-import { AuthService } from './auth/auth.service';
 import { CounterModule } from './Counter/counter.module';
 import { HomeComponent } from './shared/home/home.component';
 @NgModule({
@@ -34,7 +32,7 @@ import { HomeComponent } from './shared/home/home.component';
       logOnly: environment.production
     }),
   ],
-  providers: [APIService, AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

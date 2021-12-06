@@ -9,7 +9,9 @@ export const postselector = createSelector(getPostList, state => {
 });
 
 export const GetPostById = createSelector(getPostList, (state:any, props: any) => {
+    // return the object if id is match 
 return state.post.find( (post:any) => {
     return post.id === Number(props.id)
 });
+
 })
