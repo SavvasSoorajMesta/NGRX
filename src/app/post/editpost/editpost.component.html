@@ -1,0 +1,13 @@
+<h3>Update post</h3>
+<form [formGroup]="postForm" (ngSubmit)="updatepost(postForm.value)">
+    <div class="form-group" >
+      <label for="exampleInputEmail1">Title</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="title" formControlName="title" aria-describedby="emailHelp" placeholder="Enter Title">
+       </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <textarea type="text" class="form-control" id="exampleInputPassword1" formControlName="description"  placeholder="Desction"></textarea>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
