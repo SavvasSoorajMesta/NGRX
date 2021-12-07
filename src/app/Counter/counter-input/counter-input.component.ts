@@ -9,7 +9,7 @@ import { counterState } from '../state/counter.state';
   styleUrls: ['./counter-input.component.css']
 })
 export class CounterInputComponent implements OnInit {
-  val!: number;
+  val!: string;
   constructor(private store: Store<{counter: counterState}>) { }
 
   ngOnInit(): void {
@@ -18,6 +18,7 @@ export class CounterInputComponent implements OnInit {
   add(){
 
      this.store.dispatch(customIncrement({value: +this.val})) 
+     this.val = '';
   }
  
 }

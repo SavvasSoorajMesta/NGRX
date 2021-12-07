@@ -1,3 +1,19 @@
-<p>home works!</p>
+<h1 class="text-center text-primary"> NGRX KT Session</h1>
 
+<hr>
 
+<div class="container">
+    <div>* show NGRX Redux pattern 
+        <button  class="btn btn-info btn-sm" (click)="show()">{{customName }}</button>
+    </div>
+   <section *ngIf="ShowDiagram">
+    <div class="text-center">
+        <h3 class="text-center">Redux pattern</h3>
+        <img src="assets\redux_pattern.png" alt="redux redux_pattern">
+    </div>
+    <hr>
+    <div class="text-center mt-4">
+        <img src="assets/ngrx.png"  class="img-fluid" alt=" ngrx _pattern">
+    </div>
+   </section>
+</div>

@@ -19,17 +19,7 @@ export class AddpostComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    this.router.paramMap.subscribe(data => {
-      const PostId = data.get('id');
-      if(PostId){
-        this.store.select(GetPostById, {PostId}).subscribe((data) =>{
-          this.postForm.patchValue({
-            title: data.title,
-            description: data.description
-          })
-        })
-      }
-    })
+
   }
 
   createForm(){
@@ -40,10 +30,12 @@ export class AddpostComponent implements OnInit {
   }
   
 
-  addpost(form: NgForm){
-    console.log(this.postForm.value);
+  addpost(){
 
+    console.log(this.postForm.value);
+      // reset form data 
     this.postForm.reset(this.postForm.value);
+
     const PostData:Post = {
       title: this.postForm.value.title,
       description: this.postForm.value.description

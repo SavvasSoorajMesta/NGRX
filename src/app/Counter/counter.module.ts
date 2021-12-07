@@ -23,8 +23,7 @@ CounterInputComponent
     CommonModule,
     RouterModule.forChild(route),
     ReactiveFormsModule,
-    FormsModule,
-    StoreModule.forFeature('counter', CounterReduce)
+    FormsModule
 
   ]
 })

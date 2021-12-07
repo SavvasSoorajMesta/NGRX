@@ -29,7 +29,6 @@ const route: Routes = [{
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('post',postReducer),
     RouterModule.forChild(route)
   ],
   providers:[]

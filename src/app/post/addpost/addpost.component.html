@@ -1,5 +1,5 @@
 <h3>Add post</h3>
-<form [formGroup]="postForm" (ngSubmit)="addpost(postForm.value)">
+<form [formGroup]="postForm" (ngSubmit)="addpost()">
     <div class="form-group" >
       <label for="exampleInputEmail1">Title</label>
       <input type="text" class="form-control" id="exampleInputEmail1" name="title" formControlName="title" aria-describedby="emailHelp" placeholder="Enter Title">

@@ -1,5 +1,7 @@
 <div class="container">
-  <h2 class="display-3">Post list <button class=" btn btn-primary btn-sm font-weight-bold" [routerLink]="['addpost']">+ </button></h2>
+  <h2 class="display-3">Post list
+    <!-- add post  -->
+     <button class=" btn btn-primary btn-sm font-weight-bold" [routerLink]="['addpost']">+ </button></h2>
     <div class="row">
         <div class="col-md-8"><table class="table table-dark" *ngIf="postlist$ |async as postData">
             <thead>
@@ -15,13 +17,16 @@
                     <td>{{item.id}}</td>
                     <td>{{item.title}}</td>
                     <td>{{item.description}}</td>
-                    <td><button class="btn btn-sm btn-primary" [routerLink]="['edit',item.id]">update</button>
+                    <td>
+                      <button class="btn btn-sm btn-primary" [routerLink]="['edit',item.id]">update</button>
                       <button class="btn btn-sm btn-danger ml-3" (click)="onDelete(item.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>
           </table></div>
         <div class="col-md-4">
+
+          <!-- add and update post data  -->
             <router-outlet></router-outlet>
         </div>
     </div>

@@ -12,6 +12,8 @@ import { PostModule } from './post/post.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CounterModule } from './Counter/counter.module';
 import { HomeComponent } from './shared/home/home.component';
+import { CounterReduce } from './Counter/state/counter.reducer';
+import { postReducer } from './post/state/post.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,7 @@ import { HomeComponent } from './shared/home/home.component';
     FormsModule,
     ReactiveFormsModule,
     EffectsModule.forRoot([]),
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({ counter: CounterReduce, post: postReducer}),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
@@ -37,4 +39,5 @@ import { HomeComponent } from './shared/home/home.component';
 })
 export class AppModule {
 
+  // npm install @ngrx/store --save
  }

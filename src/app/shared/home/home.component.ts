@@ -6,4 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent  {
+  ShowDiagram: boolean = false;
+  customName: string = "show";
+  show(){
+    this.ShowDiagram = !this.ShowDiagram;
+    this.customName =  this.ShowDiagram ? 'hide': 'show';
+  }
 }
